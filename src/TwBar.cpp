@@ -1029,7 +1029,7 @@ int CTwVar::SetAttrib(int _AttribID, const char *_Value, TwBar *_Bar, struct CTw
                             size_t ml = g_TwMgr->m_Structs[Idx].m_Members[im].m_Name.length();
                             if( nl>=ml && strcmp(g_TwMgr->m_Structs[Idx].m_Members[im].m_Name.c_str(), m_Name.c_str()+(nl-ml))==0 )
                             {
-                                // TODO: would have to be applied to other vars already created
+                                // todo: would have to be applied to other vars already created
                                 if( _AttribID==V_LABEL )
                                 {
                                     g_TwMgr->m_Structs[Idx].m_Members[im].m_Label = _Value;
