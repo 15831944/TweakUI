@@ -1738,7 +1738,9 @@ std::string& CTwMgr::CLibStdString::ToLib()
 //  Management functions
 //  ---------------------------------------------------------------------------
 
-
+#ifdef ANT_CUSTOM_TwCreateGraph
+static int TwCreateGraph(ETwGraphAPI _GraphAPI);
+#else
 static int TwCreateGraph(ETwGraphAPI _GraphAPI)
 {
     assert( g_TwMgr!=NULL && g_TwMgr->m_Graph==NULL );
@@ -1794,6 +1796,7 @@ static int TwCreateGraph(ETwGraphAPI _GraphAPI)
     else
         return g_TwMgr->m_Graph->Init();
 }
+#endif
 
 //  ---------------------------------------------------------------------------
 
