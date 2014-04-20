@@ -53,6 +53,8 @@ public:
     virtual             ~ITwGraph() {}  // required by gcc
 };
 
+void TwSetCustomGraph(ITwGraph *graph);
+
 //  ---------------------------------------------------------------------------
 
 #endif  // ANT_TW_GRAPH_INCLUDED
