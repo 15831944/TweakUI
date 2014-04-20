@@ -32,6 +32,13 @@
 
 using namespace std;
 
+ITwGraph *TwCustomGraph = NULL;
+
+void TwSetCustomGraph(ITwGraph *graph)
+{
+  TwCustomGraph = graph;
+}
+
 CTwMgr *g_TwMgr = NULL; // current TwMgr
 bool g_BreakOnError = false;
 TwErrorHandler g_ErrorHandler = NULL;
@@ -1743,6 +1750,11 @@ static int TwCreateGraph(ETwGraphAPI _GraphAPI)
 {
     assert( g_TwMgr!=NULL && g_TwMgr->m_Graph==NULL );
 
+    if(TwCustomGraph != NULL)
+    {
+      g_TwMgr->m_Graph = TwCustomGraph;
+    }else
+    {
     switch( _GraphAPI )
     {
     case TW_OPENGL:
@@ -1784,6 +1796,7 @@ static int TwCreateGraph(ETwGraphAPI _GraphAPI)
             }
         #endif // ANT_WINDOWS
         break;
+    }
     }
 
     if( g_TwMgr->m_Graph==NULL )
