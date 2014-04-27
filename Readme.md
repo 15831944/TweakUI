@@ -1,3 +1,12 @@
+TweakUI
+-------
+
+TweakUI is a AntTweakBar fork aming to remove automatic window/graphic api integration to integrate it better
+into an existing framework.  
+This is a very specialized use case, so you might want to use the original AntTweakBar library:
+http://anttweakbar.sourceforge.net/doc
+
+
 AntTweakBar development library
 -------------------------------
 
