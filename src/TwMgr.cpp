@@ -6586,11 +6586,11 @@ void CTwMgr::CreateCursors()
     m_CursorTopLeft = XCreateFontCursor(m_CurrentXDisplay, XC_top_left_corner);
     m_CursorBottomRight = XCreateFontCursor(m_CurrentXDisplay, XC_bottom_right_corner);
     m_CursorBottomLeft  = XCreateFontCursor(m_CurrentXDisplay, XC_bottom_left_corner);
-    m_CursorHelp    = XCreateFontCursor(m_CurrentXDisplay, XC_question_arrow);
-    m_CursorHand    = XCreateFontCursor(m_CurrentXDisplay, XC_hand1);
-    m_CursorCross   = XCreateFontCursor(m_CurrentXDisplay, XC_X_cursor);
-    m_CursorUpArrow = XCreateFontCursor(m_CurrentXDisplay, XC_center_ptr);
-    m_CursorNo      = XCreateFontCursor(m_CurrentXDisplay, XC_left_ptr);
+    m_CursorHelp    = XCreateFontCursor(m_CurrentXDisplay, XC_question_arrow); // Not Used
+    m_CursorHand    = XCreateFontCursor(m_CurrentXDisplay, XC_hand1); // Not Used
+    m_CursorCross   = XCreateFontCursor(m_CurrentXDisplay, XC_X_cursor); // Not Used
+    m_CursorUpArrow = XCreateFontCursor(m_CurrentXDisplay, XC_center_ptr); // Not Used
+    m_CursorNo      = XCreateFontCursor(m_CurrentXDisplay, XC_left_ptr); // same as arrow
     m_CursorIBeam   = XCreateFontCursor(m_CurrentXDisplay, XC_xterm);
     for( int i=0; i<NB_ROTO_CURSORS; ++i )
     {
