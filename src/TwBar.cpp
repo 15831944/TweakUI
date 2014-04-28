@@ -31,7 +31,7 @@ const char *g_ErrNotEnum        = "Must be of type Enum";
 
 PerfTimer g_BarTimer;
 
-#define ANT_SET_CURSOR(_Name)       currentCursor = ECursor##_Name
+#define ANT_SET_CURSOR(_Name)       TwCurrentCursor = TW_CURSOR_##_Name
 
 inline void setCurrentRotoCursor(int i)
 {

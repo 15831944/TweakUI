@@ -290,25 +290,6 @@ struct CTwMgr
     bool                m_IsRepeatingMousePressed;
     double              m_LastDrawTime;
 
-    bool                m_CursorsCreated;
-    CCursor             m_CursorArrow;
-    CCursor             m_CursorMove;
-    CCursor             m_CursorWE;
-    CCursor             m_CursorNS;
-    CCursor             m_CursorTopLeft;
-    CCursor             m_CursorTopRight;
-    CCursor             m_CursorBottomLeft;
-    CCursor             m_CursorBottomRight;    
-    CCursor             m_CursorHelp;
-    CCursor             m_CursorHand;
-    CCursor             m_CursorCross;
-    CCursor             m_CursorUpArrow;
-    CCursor             m_CursorNo;
-    CCursor             m_CursorIBeam;
-    CCursor             m_RotoCursors[NB_ROTO_CURSORS];
-    CCursor             m_CursorCenter;
-    CCursor             m_CursorPoint;
-
     TwCopyCDStringToClient  m_CopyCDStringToClient;
     TwCopyStdStringToClient m_CopyStdStringToClient;
     size_t              m_ClientStdStringStructSize;

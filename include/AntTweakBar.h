@@ -370,24 +370,24 @@ TW_COMPILE_TIME_ASSERT(TW_DOUBLE,  sizeof(double)  == 8);
 
 //  ---------------------------------------------------------------------------
 
-    enum CCursor
+    enum ETwCursor
     {
-      ECursorArrow,
-      ECursorNo,
-      ECursorPoint,
-      ECursorIBeam,
-      ECursorMove,
-      ECursorWE,
-      ECursorTopLeft,
-      ECursorBottomLeft,
-      ECursorTopRight,
-      ECursorBottomRight,
-      ECursorCenter,
-      ECursorRotoIdle,
-      ECursorRotoHover,
-      ECursorRotation
+      TW_CURSOR_Arrow,
+      TW_CURSOR_No,
+      TW_CURSOR_Point,
+      TW_CURSOR_IBeam,
+      TW_CURSOR_Move,
+      TW_CURSOR_WE,
+      TW_CURSOR_TopLeft,
+      TW_CURSOR_BottomLeft,
+      TW_CURSOR_TopRight,
+      TW_CURSOR_BottomRight,
+      TW_CURSOR_Center,
+      TW_CURSOR_RotoIdle,
+      TW_CURSOR_RotoHover,
+      TW_CURSOR_Rotation
     };
-    extern CCursor currentCursor;
+    extern ETwCursor TwCurrentCursor;
 
     class ClipboardHandler
     {

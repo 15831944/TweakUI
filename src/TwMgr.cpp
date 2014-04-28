@@ -35,7 +35,7 @@ public:
 }dummyClipboardHandler;
 
 ITwGraph *TwCustomGraph = NULL;
-CCursor currentCursor = ECursorArrow;
+ETwCursor TwCurrentCursor = TW_CURSOR_Arrow;
 
 ClipboardHandler *ClipboardHandler::handler = &dummyClipboardHandler;
 
@@ -2216,8 +2216,6 @@ CTwMgr::CTwMgr(ETwGraphAPI _GraphAPI, void *_Device, int _WndID)
     m_OverlapContent = false;
     m_Terminating = false;
     
-    m_CursorsCreated = false;
-
     m_CopyCDStringToClient = g_InitCopyCDStringToClient;
     m_CopyStdStringToClient = g_InitCopyStdStringToClient;
     m_ClientStdStringStructSize = 0;
