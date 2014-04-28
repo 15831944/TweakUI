@@ -377,6 +377,7 @@ TW_COMPILE_TIME_ASSERT(TW_DOUBLE,  sizeof(double)  == 8);
       TW_CURSOR_IBeam,
       TW_CURSOR_Move,
       TW_CURSOR_WE,
+      TW_CURSOR_NS,
       TW_CURSOR_TopLeft,
       TW_CURSOR_BottomLeft,
       TW_CURSOR_TopRight,
