@@ -31,8 +31,19 @@ const char *g_ErrNotEnum        = "Must be of type Enum";
 
 PerfTimer g_BarTimer;
 
-#define ANT_SET_CURSOR(_Name)       g_TwMgr->SetCursor(g_TwMgr->m_Cursor##_Name)
-#define ANT_SET_ROTO_CURSOR(_Num)   g_TwMgr->SetCursor(g_TwMgr->m_RotoCursors[_Num])
+#define ANT_SET_CURSOR(_Name)       currentCursor = ECursor##_Name
+
+inline void setCurrentRotoCursor(int i)
+{
+  if(i==0)
+    ANT_SET_CURSOR(RotoIdle);
+  else if(i==1)
+    ANT_SET_CURSOR(RotoHover);
+  else
+    ANT_SET_CURSOR(Rotation);
+}
+
+#define ANT_SET_ROTO_CURSOR(_Num)   setCurrentRotoCursor(_Num)
 
 #if !defined(ANT_WINDOWS)
 #   define _stricmp strcasecmp
@@ -7690,45 +7701,7 @@ bool CTwBar::EditInPlaceGetClipboard(std::string *_OutString)
     assert( _OutString!=NULL );
     *_OutString = m_EditInPlace.m_Clipboard; // default implementation
 
-#if defined ANT_WINDOWS
-
-    if( !IsClipboardFormatAvailable(CF_TEXT) )
-        return false;
-    if( !OpenClipboard(NULL) )
-        return false;
-    HGLOBAL TextHandle = GetClipboardData(CF_TEXT); 
-    if( TextHandle!=NULL ) 
-    { 
-        const char *TextString = static_cast<char *>(GlobalLock(TextHandle));
-        if( TextHandle!=NULL )
-        {
-            *_OutString = TextString;
-            GlobalUnlock(TextHandle);
-        } 
-    }
-    CloseClipboard(); 
-
-#elif defined ANT_UNIX
-
-    if( g_TwMgr->m_CurrentXDisplay!=NULL )
-    {
-        int NbBytes = 0;
-        char *Buffer = XFetchBytes(g_TwMgr->m_CurrentXDisplay, &NbBytes);
-        if( Buffer!=NULL )
-        {
-            if( NbBytes>0 )
-            {
-                char *Text = new char[NbBytes+1];
-                memcpy(Text, Buffer, NbBytes);
-                Text[NbBytes] = '\0';
-                *_OutString = Text;
-                delete[] Text;
-            }
-            XFree(Buffer);
-        }
-    }
-
-#endif
+    ClipboardHandler::handler->getClipboardValue(_OutString);
 
     return true;
 }
@@ -7740,37 +7713,7 @@ bool CTwBar::EditInPlaceSetClipboard(const std::string& _String)
         return false;   // keep last clipboard
     m_EditInPlace.m_Clipboard = _String; // default implementation
 
-#if defined ANT_WINDOWS
-
-    if( !OpenClipboard(NULL) )
-        return false;
-    EmptyClipboard();
-    HGLOBAL TextHandle = GlobalAlloc(GMEM_MOVEABLE, _String.length()+1);
-    if( TextHandle==NULL )
-    { 
-        CloseClipboard(); 
-        return false; 
-    }
-    char *TextString = static_cast<char *>(GlobalLock(TextHandle));
-    memcpy(TextString, _String.c_str(), _String.length());
-    TextString[_String.length()] = '\0';
-    GlobalUnlock(TextHandle); 
-    SetClipboardData(CF_TEXT, TextHandle);
-    CloseClipboard();
-
-#elif defined ANT_UNIX
-
-    if( g_TwMgr->m_CurrentXDisplay!=NULL )
-    {
-        XSetSelectionOwner(g_TwMgr->m_CurrentXDisplay, XA_PRIMARY, None, CurrentTime);
-        char *Text = new char[_String.length()+1];
-        memcpy(Text, _String.c_str(), _String.length());
-        Text[_String.length()] = '\0';
-        XStoreBytes(g_TwMgr->m_CurrentXDisplay, Text, _String.length());
-        delete[] Text;
-    }
-
-#endif
+    ClipboardHandler::handler->setClipboardValue(_String);
 
     return true;
 }

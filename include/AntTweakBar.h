@@ -370,6 +370,36 @@ TW_COMPILE_TIME_ASSERT(TW_DOUBLE,  sizeof(double)  == 8);
 
 //  ---------------------------------------------------------------------------
 
+    enum CCursor
+    {
+      ECursorArrow,
+      ECursorNo,
+      ECursorPoint,
+      ECursorIBeam,
+      ECursorMove,
+      ECursorWE,
+      ECursorTopLeft,
+      ECursorBottomLeft,
+      ECursorTopRight,
+      ECursorBottomRight,
+      ECursorCenter,
+      ECursorRotoIdle,
+      ECursorRotoHover,
+      ECursorRotation
+    };
+    extern CCursor currentCursor;
+
+    class ClipboardHandler
+    {
+    public:
+      virtual void setClipboardValue(const std::string& _String) = 0;
+      virtual void getClipboardValue(std::string* _String) = 0;
+
+      virtual ~ClipboardHandler(){}
+
+    public:
+      static ClipboardHandler *handler;
+    };
 
 #ifdef  __cplusplus
     }   // extern "C"

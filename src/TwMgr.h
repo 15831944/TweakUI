@@ -290,22 +290,7 @@ struct CTwMgr
     bool                m_IsRepeatingMousePressed;
     double              m_LastDrawTime;
 
-    #if defined(ANT_WINDOWS)
-        typedef HCURSOR CCursor;
-        CCursor         PixmapCursor(int _CurIdx);
-    #elif defined(ANT_UNIX)
-        typedef Cursor  CCursor;
-        CCursor         PixmapCursor(int _CurIdx);
-        Display *       m_CurrentXDisplay;
-        Window          m_CurrentXWindow;
-    #elif defined(ANT_OSX)
-        typedef NSCursor * CCursor;
-        CCursor         PixmapCursor(int _CurIdx);
-    #endif  // defined(ANT_UNIX)
     bool                m_CursorsCreated;
-    void                CreateCursors();
-    void                FreeCursors();
-    void                SetCursor(CCursor _Cursor);
     CCursor             m_CursorArrow;
     CCursor             m_CursorMove;
     CCursor             m_CursorWE;
