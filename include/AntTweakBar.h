@@ -374,7 +374,6 @@ TW_COMPILE_TIME_ASSERT(TW_DOUBLE,  sizeof(double)  == 8);
     {
       TW_CURSOR_Arrow,
       TW_CURSOR_No,
-      TW_CURSOR_Point,
       TW_CURSOR_IBeam,
       TW_CURSOR_Move,
       TW_CURSOR_WE,
@@ -382,7 +381,6 @@ TW_COMPILE_TIME_ASSERT(TW_DOUBLE,  sizeof(double)  == 8);
       TW_CURSOR_BottomLeft,
       TW_CURSOR_TopRight,
       TW_CURSOR_BottomRight,
-      TW_CURSOR_Center,
       TW_CURSOR_RotoIdle,
       TW_CURSOR_RotoHover,
       TW_CURSOR_Rotation

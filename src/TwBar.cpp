@@ -33,17 +33,7 @@ PerfTimer g_BarTimer;
 
 #define ANT_SET_CURSOR(_Name)       TwCurrentCursor = TW_CURSOR_##_Name
 
-inline void setCurrentRotoCursor(int i)
-{
-  if(i==0)
-    ANT_SET_CURSOR(RotoIdle);
-  else if(i==1)
-    ANT_SET_CURSOR(RotoHover);
-  else
-    ANT_SET_CURSOR(Rotation);
-}
-
-#define ANT_SET_ROTO_CURSOR(_Num)   setCurrentRotoCursor(_Num)
+#define ANT_SET_ROTO_CURSOR(_Num)   ANT_SET_CURSOR(Rotation)
 
 #if !defined(ANT_WINDOWS)
 #   define _stricmp strcasecmp
@@ -5566,7 +5556,7 @@ bool CTwBar::MouseMotion(int _X, int _Y)
                     //else if( m_DrawRotoBtn && _X<m_PosX+m_VarX1 ) // [o] button
                     {
                         m_HighlightRotoBtn = true;
-                        ANT_SET_CURSOR(Point);
+                        ANT_SET_CURSOR(RotoHover);
                     }
                     else if( m_DrawIncrDecrBtn && _X>=m_PosX+m_VarX2-2*IncrBtnWidth(m_Font->m_CharHeight) ) // [+] button
                     {
@@ -5586,7 +5576,7 @@ bool CTwBar::MouseMotion(int _X, int _Y)
                             ANT_SET_CURSOR(Arrow);
                     }
                     else
-                        //ANT_SET_CURSOR(Point);
+                        //ANT_SET_CURSOR(RotoHover);
                         ANT_SET_CURSOR(IBeam);
                 }
             }
@@ -5672,7 +5662,7 @@ bool CTwBar::MouseMotion(int _X, int _Y)
                 m_MouseOriginX = _X;
                 m_MouseOriginY = _Y;
                 if( !Var->m_NoSlider && !Var->m_ReadOnly )
-                    ANT_SET_CURSOR(Center);
+                    ANT_SET_CURSOR(RotoIdle);
                     //ANT_SET_CURSOR(WE);
                 else
                     ANT_SET_CURSOR(Arrow);
@@ -7224,12 +7214,12 @@ void CTwBar::RotoOnMouseMove(int _X, int _Y)
         if( ti>=0 && ti<NB_ROTO_CURSORS )
             ANT_SET_ROTO_CURSOR(ti);
         else
-            ANT_SET_CURSOR(Center);
+            ANT_SET_CURSOR(RotoIdle);
     }
     else
     {
         if( m_HighlightRotoBtn )
-            ANT_SET_CURSOR(Point);
+            ANT_SET_CURSOR(RotoHover);
         else
             ANT_SET_CURSOR(Arrow);
     }
@@ -7268,7 +7258,7 @@ void CTwBar::RotoOnLButtonDown(int _X, int _Y)
                 m_Roto.m_Subdiv = 3*(int)dsubdiv;
         }
 
-        ANT_SET_CURSOR(Center);
+        ANT_SET_CURSOR(RotoIdle);
     }
 }
 
