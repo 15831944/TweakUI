@@ -44,13 +44,4 @@
 #   pragma warning(pop)
 #endif
 
-#if !defined(ANT_OGL_HEADER_INCLUDED)
-#   if defined(ANT_OSX)
-#   	include <OpenGL/gl.h>
-#   else
-#	    include <GL/gl.h>  // must be included after windows.h
-#   endif
-#   define  ANT_OGL_HEADER_INCLUDED
-#endif
-
 #endif  // !defined ANT_TW_PRECOMP_INCLUDED

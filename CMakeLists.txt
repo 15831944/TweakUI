@@ -34,7 +34,6 @@ endif()
 add_library(TweakUI STATIC
   ./src/TwBar.cpp
   ./src/TwColors.h
-  ./src/resource.h
   ./src/TwMgr.cpp
   ./src/TwGraph.h
   ./src/TwFonts.cpp
