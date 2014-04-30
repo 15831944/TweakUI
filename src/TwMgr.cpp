@@ -28,9 +28,11 @@ public:
   {
   }
 
-  void getClipboardValue(std::string* _String)
+  bool getClipboardValue(std::string* _String)
   {
     _String->clear();
+
+    return false;
   }
 }dummyClipboardHandler;
 

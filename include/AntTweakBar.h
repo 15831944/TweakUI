@@ -392,7 +392,7 @@ TW_COMPILE_TIME_ASSERT(TW_DOUBLE,  sizeof(double)  == 8);
     {
     public:
       virtual void setClipboardValue(const std::string& _String) = 0;
-      virtual void getClipboardValue(std::string* _String) = 0;
+      virtual bool getClipboardValue(std::string* _String) = 0;
 
       virtual ~ClipboardHandler(){}
 

@@ -7691,9 +7691,7 @@ bool CTwBar::EditInPlaceGetClipboard(std::string *_OutString)
     assert( _OutString!=NULL );
     *_OutString = m_EditInPlace.m_Clipboard; // default implementation
 
-    ClipboardHandler::handler->getClipboardValue(_OutString);
-
-    return true;
+    return ClipboardHandler::handler->getClipboardValue(_OutString);
 }
 
 
