@@ -4673,16 +4673,16 @@ void CTwBar::DrawHierHandle()
                 if( m_DrawHandles )
                 {
                     Gr->DrawLine(dx+x2+1,y0+dh0+1, dx+x2+1,y0+dh1+1, m_ColLineShadow);
-                    Gr->DrawLine(dx+x0+1,y0+dh1+1, dx+x2+2,y0+dh1+1, m_ColLineShadow);
+                    Gr->DrawLine(dx+x0+1,y0+dh1+1, dx+x2+1,y0+dh1+1, m_ColLineShadow);
                 }
 
                 //Gr->DrawRect(x0+1,y0+dh0+1,x2-1,y0+dh1-1, (h==m_HighlightedLine) ? m_ColHighBtn : m_ColBtn);
                 Gr->DrawRect(dx+x0, y0+dh0, dx+x2, y0+dh1, (h==m_HighlightedLine) ? m_ColHighFold : m_ColFold);
                 if( m_DrawHandles )
                 {
-                    Gr->DrawLine(dx+x0,y0+dh0, dx+x2,y0+dh0, m_ColLine);
+                    Gr->DrawLine(dx+x0,y0+dh0, dx+x2-1,y0+dh0, m_ColLine);
                     Gr->DrawLine(dx+x2,y0+dh0, dx+x2,y0+dh1+1, m_ColLine);
-                    Gr->DrawLine(dx+x2,y0+dh1, dx+x0,y0+dh1, m_ColLine);
+                    Gr->DrawLine(dx+x2-1,y0+dh1, dx+x0-1,y0+dh1, m_ColLine);
                     Gr->DrawLine(dx+x0,y0+dh1, dx+x0,y0+dh0, m_ColLine);
                 }
                 
@@ -4786,7 +4786,7 @@ void CTwBar::DrawHierHandle()
         if( m_Resizable ) // Draw resize handles
         {
             //   lower-left
-            Gr->DrawLine(m_PosX+3, m_PosY+m_Height-m_Font->m_CharHeight+3, m_PosX+3, m_PosY+m_Height-4, m_ColLine);
+            Gr->DrawLine(m_PosX+3, m_PosY+m_Height-m_Font->m_CharHeight+3, m_PosX+3, m_PosY+m_Height-3, m_ColLine);
             Gr->DrawLine(m_PosX+4, m_PosY+m_Height-m_Font->m_CharHeight+4, m_PosX+4, m_PosY+m_Height-3, m_ColLineShadow);
             Gr->DrawLine(m_PosX+3, m_PosY+m_Height-4, m_PosX+m_Font->m_CharHeight-4, m_PosY+m_Height-4, m_ColLine);
             Gr->DrawLine(m_PosX+4, m_PosY+m_Height-3, m_PosX+m_Font->m_CharHeight-3, m_PosY+m_Height-3, m_ColLineShadow);
@@ -4803,7 +4803,7 @@ void CTwBar::DrawHierHandle()
             //   upper-right
             Gr->DrawLine(m_PosX+m_Width-4, m_PosY+3, m_PosX+m_Width-m_Font->m_CharHeight+3, m_PosY+3, m_ColLine);
             Gr->DrawLine(m_PosX+m_Width-3, m_PosY+4, m_PosX+m_Width-m_Font->m_CharHeight+4, m_PosY+4, m_ColLineShadow);
-            Gr->DrawLine(m_PosX+m_Width-4, m_PosY+m_Font->m_CharHeight-4, m_PosX+m_Width-4, m_PosY+3, m_ColLine);
+            Gr->DrawLine(m_PosX+m_Width-4, m_PosY+m_Font->m_CharHeight-4, m_PosX+m_Width-4, m_PosY+4, m_ColLine);
             Gr->DrawLine(m_PosX+m_Width-3, m_PosY+m_Font->m_CharHeight-3, m_PosX+m_Width-3, m_PosY+4, m_ColLineShadow);
         }
 
@@ -4811,11 +4811,11 @@ void CTwBar::DrawHierHandle()
         wm = (wm<6) ? 6 : wm;
         if( m_Iconifiable ) // Draw minimize button
         {
-            Gr->DrawRect(xm+1, m_PosY+4, xm+wm-1, m_PosY+3+wm, m_HighlightMinimize?m_ColHighBtn:((m_ColBtn&0xffffff)|0x4f000000));
-            Gr->DrawLine(xm, m_PosY+3, xm+wm, m_PosY+3, m_ColLine);
+            Gr->DrawRect(xm, m_PosY+4, xm+wm-1, m_PosY+3+wm, m_HighlightMinimize?m_ColHighBtn:((m_ColBtn&0xffffff)|0x4f000000));
+            Gr->DrawLine(xm, m_PosY+3, xm+wm-1, m_PosY+3, m_ColLine);
             Gr->DrawLine(xm+wm, m_PosY+3, xm+wm, m_PosY+3+wm, m_ColLine);
             Gr->DrawLine(xm+wm, m_PosY+3+wm, xm, m_PosY+3+wm, m_ColLine);
-            Gr->DrawLine(xm, m_PosY+3+wm, xm, m_PosY+3, m_ColLine);
+            Gr->DrawLine(xm, m_PosY+4+wm, xm, m_PosY+3, m_ColLine);
             Gr->DrawLine(xm+wm+1, m_PosY+4, xm+wm+1, m_PosY+4+wm, m_ColLineShadow);
             Gr->DrawLine(xm+wm+1, m_PosY+4+wm, xm, m_PosY+4+wm, m_ColLineShadow);
             Gr->DrawLine(xm+wm/3+((wm<9)?1:0)-1, m_PosY+4+wm/3-((wm<9)?0:1), xm+wm/2, m_PosY+2+wm-1, m_ColTitleText, true);
@@ -4825,11 +4825,11 @@ void CTwBar::DrawHierHandle()
         if( g_TwMgr->m_FontResizable ) // Draw font button
         {
             xm = m_PosX+m_Font->m_CharHeight+2;
-            Gr->DrawRect(xm+1, m_PosY+4, xm+wm-1, m_PosY+3+wm, m_HighlightFont?m_ColHighBtn:((m_ColBtn&0xffffff)|0x4f000000));
-            Gr->DrawLine(xm, m_PosY+3, xm+wm, m_PosY+3, m_ColLine);
+            Gr->DrawRect(xm, m_PosY+4, xm+wm-1, m_PosY+3+wm, m_HighlightFont?m_ColHighBtn:((m_ColBtn&0xffffff)|0x4f000000));
+            Gr->DrawLine(xm, m_PosY+3, xm+wm-1, m_PosY+3, m_ColLine);
             Gr->DrawLine(xm+wm, m_PosY+3, xm+wm, m_PosY+3+wm, m_ColLine);
             Gr->DrawLine(xm+wm, m_PosY+3+wm, xm, m_PosY+3+wm, m_ColLine);
-            Gr->DrawLine(xm, m_PosY+3+wm, xm, m_PosY+3, m_ColLine);
+            Gr->DrawLine(xm, m_PosY+4+wm, xm, m_PosY+3, m_ColLine);
             Gr->DrawLine(xm+wm+1, m_PosY+4, xm+wm+1, m_PosY+4+wm, m_ColLineShadow);
             Gr->DrawLine(xm+wm+1, m_PosY+4+wm, xm, m_PosY+4+wm, m_ColLineShadow);
             Gr->DrawLine(xm+wm/2-wm/6, m_PosY+3+wm/3, xm+wm/2+wm/6+1, m_PosY+3+wm/3, m_ColTitleText);
