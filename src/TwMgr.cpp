@@ -9,7 +9,7 @@
 
 
 #include "TwPrecomp.h"
-#include <AntTweakBar.h>
+#include <TweakUI.h>
 #include "TwMgr.h"
 #include "TwBar.h"
 #include "TwFonts.h"
