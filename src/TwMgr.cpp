@@ -2087,7 +2087,7 @@ int ANT_CALL TwDraw()
                         for( j=0; j<ClippedBarRects.size(); j++ )
                             if (ClippedBarRects[j].W>1 && ClippedBarRects[j].H>1)
                             {
-                                g_TwMgr->m_Graph->SetScissor(ClippedBarRects[j].X+1, ClippedBarRects[j].Y, ClippedBarRects[j].W, ClippedBarRects[j].H-1);
+                                g_TwMgr->m_Graph->SetScissor(ClippedBarRects[j].X, ClippedBarRects[j].Y, ClippedBarRects[j].W, ClippedBarRects[j].H);
                                 //g_TwMgr->m_Graph->DrawRect(0, 0, 1000, 1000, 0x70ffffff); // Clipping test
                                 Bar->Draw(CTwBar::DRAW_CONTENT);
                             }

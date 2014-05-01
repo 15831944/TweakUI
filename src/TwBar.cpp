@@ -4686,7 +4686,7 @@ void CTwBar::DrawHierHandle()
                     Gr->DrawLine(dx+x0,y0+dh1, dx+x0,y0+dh0, m_ColLine);
                 }
                 
-                Gr->DrawLine(dx+x0+2,y0+dh0+w/2, dx+x2-1,y0+dh0+w/2, m_ColTitleText);
+                Gr->DrawLine(dx+x0+1,y0+dh0+w/2, dx+x2-2,y0+dh0+w/2, m_ColTitleText);
                 if( !Grp->m_Open )
                     Gr->DrawLine(dx+x1,y0+dh0+2, dx+x1,y0+dh1-1, m_ColTitleText);
 
@@ -4933,7 +4933,7 @@ void CTwBar::Draw(int _DrawPart)
             {
                 int y0 = m_PosY + m_VarY0 + m_HighlightedLine*(m_Font->m_CharHeight+m_LineSep);
                 Gr->DrawRect(m_PosX+LevelSpace+6+LevelSpace*m_HierTags[m_HighlightedLine].m_Level, y0+1, m_PosX+m_VarX2, y0+m_Font->m_CharHeight-1+m_LineSep-1, m_ColHighBg0, m_ColHighBg0, m_ColHighBg1, m_ColHighBg1);
-                int eps = (g_TwMgr->m_GraphAPI==TW_OPENGL || g_TwMgr->m_GraphAPI==TW_OPENGL_CORE) ? 1 : 0;
+                int eps = 0;
                 if( !m_EditInPlace.m_Active )
                     Gr->DrawLine(m_PosX+LevelSpace+6+LevelSpace*m_HierTags[m_HighlightedLine].m_Level, y0+m_Font->m_CharHeight+m_LineSep-1+eps, m_PosX+m_VarX2, y0+m_Font->m_CharHeight+m_LineSep-1+eps, m_ColUnderline);
             }
@@ -4949,10 +4949,10 @@ void CTwBar::Draw(int _DrawPart)
                     Gr->DrawRect(m_PosX+LevelSpace+6+LevelSpace*m_HierTags[m_HighlightedLine].m_Level, y0+1, m_PosX+LevelSpace+6+LevelSpace*m_HierTags[m_HighlightedLine].m_Level+4, y0+m_Font->m_CharHeight-1+m_LineSep-1, col);
             }
             color32 clight = 0x5FFFFFFF; // bar contour
-            Gr->DrawLine(m_PosX, m_PosY, m_PosX, m_PosY+m_Height, clight);
+            Gr->DrawLine(m_PosX+1, m_PosY+1, m_PosX+1, m_PosY+m_Height, clight);
             Gr->DrawLine(m_PosX, m_PosY, m_PosX+m_Width, m_PosY, clight);
             Gr->DrawLine(m_PosX+m_Width, m_PosY, m_PosX+m_Width, m_PosY+m_Height, clight);
-            Gr->DrawLine(m_PosX, m_PosY+m_Height, m_PosX+m_Width, m_PosY+m_Height, clight);
+            Gr->DrawLine(m_PosX+1, m_PosY+m_Height-1, m_PosX+m_Width-1, m_PosY+m_Height-1, clight);
             int dshad = 3;  // bar shadows
             color32 cshad = (((m_Color>>24)/2)<<24) & 0xFF000000;
             Gr->DrawRect(m_PosX, m_PosY+m_Height, m_PosX+dshad, m_PosY+m_Height+dshad, 0, cshad, 0, 0);
@@ -4994,7 +4994,7 @@ void CTwBar::Draw(int _DrawPart)
                         // draw color value
                         if( Grp->m_Vars.size()>0 && Grp->m_Vars[0]!=NULL && !Grp->m_Vars[0]->IsGroup() )
                             static_cast<CTwVarAtom *>(Grp->m_Vars[0])->ValueToDouble(); // force ext update
-                        int ydecal = (g_TwMgr->m_GraphAPI==TW_OPENGL || g_TwMgr->m_GraphAPI==TW_OPENGL_CORE) ? 1 : 0;
+                        int ydecal = 0;
                         const int checker = 8;
                         for( int c=0; c<checker; ++c )
                             Gr->DrawRect(m_PosX+m_VarX1+(c*(m_VarX2-m_VarX1))/checker, yh+1+ydecal+((c%2)*(m_Font->m_CharHeight-2))/2, m_PosX+m_VarX1-1+((c+1)*(m_VarX2-m_VarX1))/checker, yh+ydecal+(((c%2)+1)*(m_Font->m_CharHeight-2))/2, 0xffffffff);
@@ -5457,7 +5457,7 @@ void CTwBar::Draw(int _DrawPart)
                 Gr->DrawLine(xm, m_MinPosY+3+wm, xm, m_MinPosY+3, m_ColLine);
                 Gr->DrawLine(xm+wm+1, m_MinPosY+4, xm+wm+1, m_MinPosY+4+wm, m_ColLineShadow);
                 Gr->DrawLine(xm+wm+1, m_MinPosY+4+wm, xm, m_MinPosY+4+wm, m_ColLineShadow);
-                Gr->DrawLine(xm+wm/2-wm/6, m_MinPosY+3+wm/4, xm+wm-wm/3, m_MinPosY+3+wm/4, m_ColTitleText);
+                Gr->DrawLine(xm+wm/2-wm/4, m_MinPosY+3+wm/4, xm+wm-wm/3, m_MinPosY+3+wm/4, m_ColTitleText);
                 Gr->DrawLine(xm+wm-wm/3, m_MinPosY+3+wm/4, xm+wm-wm/3, m_MinPosY+3+wm/2, m_ColTitleText);
                 Gr->DrawLine(xm+wm-wm/3, m_MinPosY+3+wm/2, xm+wm/2, m_MinPosY+3+wm/2, m_ColTitleText);
                 Gr->DrawLine(xm+wm/2, m_MinPosY+3+wm/2, xm+wm/2, m_MinPosY+3+wm-wm/4, m_ColTitleText);
