@@ -9,7 +9,7 @@
 
 
 #include "TwPrecomp.h"
-#include <AntTweakBar.h>
+#include <TweakUI.h>
 #include "TwMgr.h"
 #include "TwBar.h"
 #include "TwFonts.h"
@@ -20,6 +20,9 @@
 
 
 using namespace std;
+
+namespace TweakUI
+{
 
 class DummyClipboardHandler : public ClipboardHandler
 {
@@ -6315,3 +6318,4 @@ bool CRect::Subtract(const vector<CRect>& _Rects, vector<CRect>& _OutRects) cons
 
 //  ---------------------------------------------------------------------------
 
+}

@@ -14,6 +14,9 @@
 #if !defined ANT_TW_FONTS_INCLUDED
 #define ANT_TW_FONTS_INCLUDED
 
+namespace TweakUI
+{
+
 //#include <AntTweakBar.h>
 
 /*
@@ -24,7 +27,7 @@ to ascii char 255 (extended ASCII Latin1/CP1252):
 @ABCDEFGHIJKLMNOPQRSTUVWXYZ[\]^_
 `abcdefghijklmnopqrstuvwxyz{|}~
 €‚ƒ„…†‡ˆ‰Š‹Œ‘’“”•–—˜™š›œŸ
- ¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿
+ ¡¢£¤¥¦§¨©ª«¬­®¯°±²³´µ¶·¸¹º»¼½¾¿
 ÀÁÂÃÄÅÆÇÈÉÊËÌÍÎÏĞÑÒÓÔÕÖ×ØÙÚÛÜİŞß
 àáâãäåæçèéêëìíîïğñòóôõö÷øùúûüışÿ
 
@@ -64,5 +67,6 @@ extern CTexFont *g_DefaultFixedRuFont;
 void TwGenerateDefaultFonts(float _Scaling=1.0f);
 void TwDeleteDefaultFonts();
 
+}
 
 #endif  // !defined ANT_TW_FONTS_INCLUDED

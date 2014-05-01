@@ -14,7 +14,7 @@
 #if !defined ANT_TW_MGR_INCLUDED
 #define ANT_TW_MGR_INCLUDED
 
-#include <AntTweakBar.h>
+#include <TweakUI.h>
 #define ANT_CALL TW_CALL
 
 #include "TwColors.h"
@@ -22,6 +22,8 @@
 #include "TwGraph.h"
 #include "AntPerfTimer.h"
 
+namespace TweakUI
+{
 
 //#define BENCH // uncomment to activate benchmarks
 
@@ -487,5 +489,6 @@ private:
 
 //  ---------------------------------------------------------------------------
 
+}
 
 #endif // !defined ANT_TW_MGR_INCLUDED

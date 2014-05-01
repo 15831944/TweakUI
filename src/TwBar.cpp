@@ -9,12 +9,15 @@
 
 
 #include "TwPrecomp.h"
-#include <AntTweakBar.h>
+#include <TweakUI.h>
 #include "TwMgr.h"
 #include "TwBar.h"
 #include "TwColors.h"
   
 using namespace std;
+
+namespace TweakUI
+{
 
 extern const char *g_ErrNotFound;
 const char *g_ErrUnknownAttrib  = "Unknown parameter";
@@ -7711,4 +7714,4 @@ bool CTwBar::EditInPlaceSetClipboard(const std::string& _String)
 
 //  ---------------------------------------------------------------------------
 
-
+}

@@ -14,11 +14,13 @@
 #if !defined ANT_TW_BAR_INCLUDED
 #define ANT_TW_BAR_INCLUDED
 
-#include <AntTweakBar.h>
+#include <TweakUI.h>
 #include "TwColors.h"
   
 #define ANT_TWEAK_BAR_DLL "AntTweakBar"
 
+namespace TweakUI
+{
 
 //  ---------------------------------------------------------------------------
 
@@ -436,5 +438,6 @@ void DrawArc(int _X, int _Y, int _Radius, float _StartAngleDeg, float _EndAngleD
 
 //  ---------------------------------------------------------------------------
 
+}
 
 #endif // !defined ANT_TW_BAR_INCLUDED

@@ -23,6 +23,8 @@
     #include <windows.h>
     #include <tchar.h>
 
+namespace TweakUI
+{
     struct PerfTimer
     {
         inline        PerfTimer()   { if( !QueryPerformanceFrequency(&Freq) ) MessageBox(NULL, _T("Precision timer not supported"), _T("Problem"), MB_ICONEXCLAMATION); Reset(); }
@@ -31,12 +33,15 @@
     protected:
         LARGE_INTEGER Start, End, Freq;
     };
+}
 
 #else // !_WIN (-> LINUX)
 
     #include <sys/time.h>
     #include <unistd.h>
 
+namespace TweakUI
+{
     struct PerfTimer
     {
         inline        PerfTimer()   { Reset(); }
@@ -49,6 +54,7 @@
         struct timeval Start, End;
         struct timezone TZ;
     };
+}
 
 #endif // _WIN
 
