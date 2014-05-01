@@ -5227,16 +5227,18 @@ void CTwBar::Draw(int _DrawPart)
                 if( !m_HighlightValWidth )
                 {
                     color32 col = m_DarkText ? COLOR32_WHITE : m_ColTitleText;
-                    Gr->DrawRect(m_PosX+m_VarX1-2, m_PosY+m_VarY0-8, m_PosX+m_VarX1-1, m_PosY+m_VarY0-4, col);
-                    Gr->DrawLine(m_PosX+m_VarX1-1, m_PosY+m_VarY0-3, m_PosX+m_VarX1, m_PosY+m_VarY0-3, m_ColLineShadow);
-                    Gr->DrawLine(m_PosX+m_VarX1, m_PosY+m_VarY0-3, m_PosX+m_VarX1, m_PosY+m_VarY0-8, m_ColLineShadow);
+                    col = (0x00ffffff&col) | 0xa0000000;
+                    Gr->DrawRect(m_PosX+m_VarX1-2, m_PosY+m_VarY0-8, m_PosX+m_VarX1, m_PosY+m_VarY0-4, col);
+                    Gr->DrawLine(m_PosX+m_VarX1-2, m_PosY+m_VarY0-4, m_PosX+m_VarX1, m_PosY+m_VarY0-4, m_ColLineShadow);
+                    Gr->DrawLine(m_PosX+m_VarX1+1, m_PosY+m_VarY0-3, m_PosX+m_VarX1+1, m_PosY+m_VarY0-8, m_ColLineShadow);
                 }
                 else
                 {
                     color32 col = m_DarkText ? COLOR32_WHITE : m_ColTitleText;
-                    Gr->DrawRect(m_PosX+m_VarX1-2, m_PosY+m_VarY0-8, m_PosX+m_VarX1-1, m_PosY+m_VarY1, col);
-                    Gr->DrawLine(m_PosX+m_VarX1-1, m_PosY+m_VarY1+1, m_PosX+m_VarX1, m_PosY+m_VarY1+1, m_ColLineShadow);
-                    Gr->DrawLine(m_PosX+m_VarX1, m_PosY+m_VarY1+1, m_PosX+m_VarX1, m_PosY+m_VarY0-8, m_ColLineShadow);
+                    col = (0x00ffffff&col) | 0xa0000000;
+                    Gr->DrawRect(m_PosX+m_VarX1-2, m_PosY+m_VarY0-8, m_PosX+m_VarX1, m_PosY+m_VarY1, col);
+                    Gr->DrawLine(m_PosX+m_VarX1-2, m_PosY+m_VarY1, m_PosX+m_VarX1, m_PosY+m_VarY1, m_ColLineShadow);
+                    Gr->DrawLine(m_PosX+m_VarX1+1, m_PosY+m_VarY1+1, m_PosX+m_VarX1+1, m_PosY+m_VarY0-8, m_ColLineShadow);
                 }
 
                 // Draw labels & values headers
