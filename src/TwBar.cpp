@@ -4918,7 +4918,7 @@ void CTwBar::Draw(int _DrawPart)
         PERF( Timer.Reset(); )
         if( _DrawPart&DRAW_BG )
         {
-            Gr->DrawRect(m_PosX, y, m_PosX+m_Width-1, m_PosY+m_Height-1, colBg2, colBg1, colBg1, colBg);
+            Gr->DrawRect(m_PosX, y-1, m_PosX+m_Width-1, m_PosY+m_Height-1, colBg2, colBg1, colBg1, colBg);
             //Gr->DrawRect(m_PosX, y, m_PosX+m_VarX0-5, m_PosY+m_Height-1, m_ColHierBg);
             Gr->DrawRect(m_PosX+m_VarX2+3, y, m_PosX+m_Width-1, m_PosY+m_Height-1, m_ColHierBg);
         }
