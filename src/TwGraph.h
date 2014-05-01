@@ -17,6 +17,8 @@
 #include "TwColors.h"
 #include "TwFonts.h"
 
+namespace TweakUI
+{
 
 //  ---------------------------------------------------------------------------
 
@@ -56,5 +58,7 @@ public:
 void TwSetCustomGraph(ITwGraph *graph);
 
 //  ---------------------------------------------------------------------------
+
+}
 
 #endif  // ANT_TW_GRAPH_INCLUDED

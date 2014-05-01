@@ -21,6 +21,9 @@
 
 using namespace std;
 
+namespace TweakUI
+{
+
 class DummyClipboardHandler : public ClipboardHandler
 {
 public:
@@ -6315,3 +6318,4 @@ bool CRect::Subtract(const vector<CRect>& _Rects, vector<CRect>& _OutRects) cons
 
 //  ---------------------------------------------------------------------------
 
+}

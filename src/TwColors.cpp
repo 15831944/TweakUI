@@ -12,6 +12,9 @@
 #include "TwColors.h"
 
 
+namespace TweakUI
+{
+
 void ColorRGBToHLSf(float _R, float _G, float _B, float *_Hue, float *_Light, float *_Saturation)
 {
     // Compute HLS from RGB. The r,g,b triplet is between [0,1], 
@@ -151,3 +154,4 @@ color32 ColorBlend(color32 _Color1, color32 _Color2, float _S)
 }
 
 
+}

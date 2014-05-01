@@ -16,6 +16,9 @@
   
 using namespace std;
 
+namespace TweakUI
+{
+
 extern const char *g_ErrNotFound;
 const char *g_ErrUnknownAttrib  = "Unknown parameter";
 const char *g_ErrInvalidAttrib  = "Invalid parameter";
@@ -7711,4 +7714,4 @@ bool CTwBar::EditInPlaceSetClipboard(const std::string& _String)
 
 //  ---------------------------------------------------------------------------
 
-
+}

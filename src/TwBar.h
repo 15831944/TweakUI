@@ -19,6 +19,8 @@
   
 #define ANT_TWEAK_BAR_DLL "AntTweakBar"
 
+namespace TweakUI
+{
 
 //  ---------------------------------------------------------------------------
 
@@ -436,5 +438,6 @@ void DrawArc(int _X, int _Y, int _Radius, float _StartAngleDeg, float _EndAngleD
 
 //  ---------------------------------------------------------------------------
 
+}
 
 #endif // !defined ANT_TW_BAR_INCLUDED

@@ -15,6 +15,9 @@
 #define ANT_TW_COLORS_INCLUDED
 
 
+namespace TweakUI
+{
+
 //  ---------------------------------------------------------------------------
 
 
@@ -76,5 +79,6 @@ color32 ColorBlend(color32 _Color1, color32 _Color2, float _S);
 
 //  ---------------------------------------------------------------------------
 
+}
 
 #endif // !defined ANT_TW_COLORS_INCLUDED
