@@ -5041,23 +5041,23 @@ void CTwBar::Draw(int _DrawPart)
                         if( (m_HighlightClickBtn || (BtnAutoDelta>=0 && BtnAutoDelta<0.1)) && h==m_HighlightedLine )
                         {
                             cbx0--; cby0--; cbx1--; cby1--;
-                            Gr->DrawRect(cbx0+2, cby0+2, cbx1+2, cby1+2, m_ColHighBtn);
-                            Gr->DrawLine(cbx0+3, cby1+3, cbx1+4, cby1+3, 0xAF000000);
+                            Gr->DrawRect(cbx0+2, cby0+3, cbx1+1, cby1+2, m_ColHighBtn);
+                            Gr->DrawLine(cbx0+3, cby1+3, cbx1+3, cby1+3, 0xAF000000);
                             Gr->DrawLine(cbx1+3, cby0+3, cbx1+3, cby1+3, 0xAF000000);                       
-                            Gr->DrawLine(cbx0+2, cby0+2, cbx0+2, cby1+2, m_ColLine);
+                            Gr->DrawLine(cbx0+2, cby0+2, cbx0+2, cby1+3, m_ColLine);
                             Gr->DrawLine(cbx0+2, cby1+2, cbx1+2, cby1+2, m_ColLine);
                             Gr->DrawLine(cbx1+2, cby1+2, cbx1+2, cby0+2, m_ColLine);
-                            Gr->DrawLine(cbx1+2, cby0+2, cbx0+2, cby0+2, m_ColLine);
+                            Gr->DrawLine(cbx1+1, cby0+2, cbx0+2, cby0+2, m_ColLine);
                         }
                         else
                         {
-                            Gr->DrawRect(cbx0+2, cby1+1, cbx1+2, cby1+2, (h==m_HighlightedLine)?0xAF000000:0x7F000000);
-                            Gr->DrawRect(cbx1+1, cby0+2, cbx1+2, cby1, (h==m_HighlightedLine)?0xAF000000:0x7F000000);
-                            Gr->DrawRect(cbx0, cby0, cbx1, cby1, (h==m_HighlightedLine)?m_ColHighBtn:m_ColBtn);
-                            Gr->DrawLine(cbx0, cby0, cbx0, cby1, m_ColLine);
+                            Gr->DrawRect(cbx0, cby1+1, cbx1+1, cby1+2, (h==m_HighlightedLine)?0xAF000000:0x7F000000);
+                            Gr->DrawRect(cbx1, cby0+1, cbx1+1, cby1+1, (h==m_HighlightedLine)?0xAF000000:0x7F000000);
+                            Gr->DrawRect(cbx0, cby0+1, cbx1-1, cby1, (h==m_HighlightedLine)?m_ColHighBtn:m_ColBtn);
+                            Gr->DrawLine(cbx0, cby0, cbx0, cby1+1, m_ColLine);
                             Gr->DrawLine(cbx0, cby1, cbx1, cby1, m_ColLine);
                             Gr->DrawLine(cbx1, cby1, cbx1, cby0, m_ColLine);
-                            Gr->DrawLine(cbx1, cby0, cbx0, cby0, m_ColLine);
+                            Gr->DrawLine(cbx1-1, cby0, cbx0, cby0, m_ColLine);
                         }
                     }
                     else if( static_cast<CTwVarAtom *>(m_HierTags[h].m_Var)->m_Val.m_Button.m_Callback!=NULL )
@@ -5165,10 +5165,10 @@ void CTwBar::Draw(int _DrawPart)
                         Gr->DrawRect(m_PosX+m_VarX2-3*bw+1, y0+1, m_PosX+m_VarX2-2*bw-1, y0+m_Font->m_CharHeight-2, (m_HighlightDecrBtn && !IsMin)?m_ColHighBtn:m_ColBtn);
                         Gr->DrawRect(m_PosX+m_VarX2-2*bw+1, y0+1, m_PosX+m_VarX2-bw-1, y0+m_Font->m_CharHeight-2, (m_HighlightIncrBtn && !IsMax)?m_ColHighBtn:m_ColBtn);
                         // [-]
-                        Gr->DrawLine(m_PosX+m_VarX2-3*bw+3+(bw>8?1:0), y0+m_Font->m_CharHeight/2, m_PosX+m_VarX2-2*bw-2-(bw>8?1:0), y0+m_Font->m_CharHeight/2, IsMin?m_ColValTextRO:m_ColTitleText);
+                        Gr->DrawLine(m_PosX+m_VarX2-3*bw+3+(bw>8?1:0)-1, y0+m_Font->m_CharHeight/2-1, m_PosX+m_VarX2-2*bw-2-(bw>8?1:0), y0+m_Font->m_CharHeight/2-1, IsMin?m_ColValTextRO:m_ColTitleText);
                         // [+]
-                        Gr->DrawLine(m_PosX+m_VarX2-2*bw+3, y0+m_Font->m_CharHeight/2, m_PosX+m_VarX2-bw-2, y0+m_Font->m_CharHeight/2, IsMax?m_ColValTextRO:m_ColTitleText);
-                        Gr->DrawLine(m_PosX+m_VarX2-bw-bw/2, y0+m_Font->m_CharHeight/2-bw/2+2, m_PosX+m_VarX2-bw-bw/2, y0+m_Font->m_CharHeight/2+bw/2-1, IsMax?m_ColValTextRO:m_ColTitleText);
+                        Gr->DrawLine(m_PosX+m_VarX2-2*bw+3-1, y0+m_Font->m_CharHeight/2-1, m_PosX+m_VarX2-bw-2-1, y0+m_Font->m_CharHeight/2-1, IsMax?m_ColValTextRO:m_ColTitleText);
+                        Gr->DrawLine(m_PosX+m_VarX2-bw-bw/2, y0+m_Font->m_CharHeight/2-bw/2+2-1, m_PosX+m_VarX2-bw-bw/2, y0+m_Font->m_CharHeight/2+bw/2-1-1, IsMax?m_ColValTextRO:m_ColTitleText);
                     }
                     else if( m_DrawListBtn )
                     {
@@ -5213,7 +5213,7 @@ void CTwBar::Draw(int _DrawPart)
                         Gr->DrawLine(m_PosX+m_VarX2-3*bw+bw/2-1, y0+m_Font->m_CharHeight/2+1, m_PosX+m_VarX2-3*bw+bw/2+2, y0+m_Font->m_CharHeight/2+1, m_ColTitleText);
                         Gr->DrawLine(m_PosX+m_VarX2-3*bw+bw/2+0, y0+m_Font->m_CharHeight/2+2, m_PosX+m_VarX2-3*bw+bw/2+1, y0+m_Font->m_CharHeight/2+2, m_ColTitleText);
                         */
-                        int dy = 0;
+                        int dy = -1;
                         Gr->DrawRect(m_PosX+m_VarX2-bw+1, y0+1, m_PosX+m_VarX2-1, y0+m_Font->m_CharHeight-2, m_HighlightRotoBtn?m_ColHighBtn:m_ColBtn);
                         Gr->DrawLine(m_PosX+m_VarX2-bw+bw/2+0, y0+m_Font->m_CharHeight/2-1+dy, m_PosX+m_VarX2-bw+bw/2+1, y0+m_Font->m_CharHeight/2-1+dy, m_ColTitleText, true);
                         Gr->DrawLine(m_PosX+m_VarX2-bw+bw/2-1, y0+m_Font->m_CharHeight/2+0+dy, m_PosX+m_VarX2-bw+bw/2+2, y0+m_Font->m_CharHeight/2+0+dy, m_ColTitleText, true);
