@@ -44,7 +44,7 @@ add_library(TweakUI STATIC
   ./src/TwBar.h
   ./src/TwPrecomp.cpp
   ./src/AntPerfTimer.h
-  ./include/AntTweakBar.h
+  ./include/TweakUI.h
 )
 
 set(TWEAKUI_LIBRARIES
