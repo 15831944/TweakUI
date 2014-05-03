@@ -4754,7 +4754,7 @@ void CTwBar::DrawHierHandle()
         {
             // scroll handle shadow lines
             Gr->DrawLine(x1,m_ScrollY0+1, x1,m_ScrollY1+1, m_ColLineShadow);
-            Gr->DrawLine(x0+2,m_ScrollY1, x1,m_ScrollY1, m_ColLineShadow);
+            Gr->DrawLine(x0+2,m_ScrollY1+1, x1,m_ScrollY1+1, m_ColLineShadow);
             
             // up & down arrow
             for( i=0; i<(x1-x0-2)/2; ++i )
@@ -4777,7 +4777,7 @@ void CTwBar::DrawHierHandle()
             Gr->DrawRect(x0+2,m_ScrollY0+1, x1-2,m_ScrollY1-1, m_HighlightScroll?m_ColHighBtn:m_ColBtn);
             Gr->DrawLine(x1-1,m_ScrollY0, x1-1,m_ScrollY1, m_ColLine);
             Gr->DrawLine(x0+2,m_ScrollY0, x0+1,m_ScrollY1, m_ColLine);
-            Gr->DrawLine(x0+2,m_ScrollY1-1, x1-2,m_ScrollY1-1, m_ColLine);
+            Gr->DrawLine(x0+1,m_ScrollY1, x1-1,m_ScrollY1, m_ColLine);
             Gr->DrawLine(x0+2,m_ScrollY0, x1-2,m_ScrollY0, m_ColLine);
         }
         else
