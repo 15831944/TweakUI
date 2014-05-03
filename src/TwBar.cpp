@@ -4953,7 +4953,7 @@ void CTwBar::Draw(int _DrawPart)
             }
             color32 clight = 0x5FFFFFFF; // bar contour
             Gr->DrawLine(m_PosX+1, m_PosY+1, m_PosX+1, m_PosY+m_Height, clight);
-            Gr->DrawLine(m_PosX, m_PosY, m_PosX+m_Width, m_PosY, clight);
+            Gr->DrawLine(m_PosX, m_PosY, m_PosX+m_Width-1, m_PosY, clight);
             Gr->DrawLine(m_PosX+m_Width, m_PosY, m_PosX+m_Width, m_PosY+m_Height, clight);
             Gr->DrawLine(m_PosX+1, m_PosY+m_Height-1, m_PosX+m_Width-1, m_PosY+m_Height-1, clight);
             int dshad = 3;  // bar shadows
