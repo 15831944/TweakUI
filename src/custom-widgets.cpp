@@ -120,10 +120,8 @@ namespace TweakUI {
       g_TwMgr->m_Graph->DrawLine(w, 0, 0, h, 0xffffffff, true);
 
       // draw borders
-      g_TwMgr->m_Graph->DrawLine(1, 0, w-1, 0, 0x40000000);
-      g_TwMgr->m_Graph->DrawLine(w-1, 0, w-1, h-1, 0x40000000);
-      g_TwMgr->m_Graph->DrawLine(w-1, h-1, 1, h-1, 0x40000000);
-      g_TwMgr->m_Graph->DrawLine(1, h-1, 1, 0, 0x40000000);
+      g_TwMgr->m_Graph->DrawFrame(0, 0, w, h, 0x40000000);
+      g_TwMgr->m_Graph->DrawFrame(8, 8, 16, 16, 0x80ffffff);
     }
 
 

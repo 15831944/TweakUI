@@ -42,6 +42,19 @@ public:
     virtual void        DrawRect(int _X0, int _Y0, int _X1, int _Y1, color32 _Color) = 0;
     enum Cull           { CULL_NONE, CULL_CW, CULL_CCW };
     virtual void        DrawTriangles(int _NumTriangles, int *_Vertices, color32 *_Colors, Cull _CullMode) = 0;
+    virtual void        DrawFrame(int _X0, int _Y0, int _X1, int _Y1, color32 _Color)
+    {
+      int x = _X0;
+      int y = _Y0;
+      int w = _X1-_X0;
+      int h = _Y1-_Y0;
+
+      DrawLine(x+1, y+1, x+1, y+h, _Color);
+      DrawLine(x, y, x+w-1, y, _Color);
+      DrawLine(x+w, y, x+w, y+h, _Color);
+      DrawLine(x+1, y+h-1, x+w-1, y+h-1, _Color);
+    }
+
 
     virtual void *      NewTextObj() = 0;
     virtual void        DeleteTextObj(void *_TextObj) = 0;
