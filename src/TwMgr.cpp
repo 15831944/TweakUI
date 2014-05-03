@@ -1520,10 +1520,7 @@ void CQuaternionExt::DrawCB(int w, int h, void *_ExtValue, void *_ClientData, Tw
     }
 
     // draw borders
-    g_TwMgr->m_Graph->DrawLine(1, 0, w-1, 0, 0x40000000);
-    g_TwMgr->m_Graph->DrawLine(w-1, 0, w-1, h-1, 0x40000000);
-    g_TwMgr->m_Graph->DrawLine(w-1, h-1, 1, h-1, 0x40000000);
-    g_TwMgr->m_Graph->DrawLine(1, h-1, 1, 0, 0x40000000);
+    g_TwMgr->m_Graph->DrawFrame(0, 0, w, h, 0x40000000);
 }
 
 bool CQuaternionExt::MouseMotionCB(int mouseX, int mouseY, int w, int h, void *structExtValue, void *clientData, TwBar *bar, CTwVarGroup *varGrp)
