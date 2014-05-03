@@ -5000,18 +5000,19 @@ void CTwBar::Draw(int _DrawPart)
                         int ydecal = 0;
                         const int checker = 8;
                         for( int c=0; c<checker; ++c )
-                            Gr->DrawRect(m_PosX+m_VarX1+(c*(m_VarX2-m_VarX1))/checker, yh+1+ydecal+((c%2)*(m_Font->m_CharHeight-2))/2, m_PosX+m_VarX1-1+((c+1)*(m_VarX2-m_VarX1))/checker+1, yh+ydecal+(((c%2)+1)*(m_Font->m_CharHeight-2))/2+1, 0xffffffff);
-                        Gr->DrawRect(m_PosX+m_VarX1, yh+1+ydecal, m_PosX+m_VarX2, yh+ydecal+m_Font->m_CharHeight-1, 0xc0808080);
+                            Gr->DrawRect(m_PosX+m_VarX1+(c*(m_VarX2-m_VarX1))/checker,
+                                         yh+ydecal+((c%2)*m_Font->m_CharHeight)/2,
+                                         m_PosX+m_VarX1-1+((c+1)*(m_VarX2-m_VarX1))/checker+1,
+                                         yh+ydecal+(((c%2)+1)*m_Font->m_CharHeight)/2,
+                                         0xffffffff);
+                        Gr->DrawRect(m_PosX+m_VarX1, yh+ydecal, m_PosX+m_VarX2, yh+ydecal+m_Font->m_CharHeight, 0xc0808080);
                         const CColorExt *colExt = static_cast<const CColorExt *>(Grp->m_StructValuePtr);
                         color32 col = Color32FromARGBi((colExt->m_HasAlpha ? colExt->A : 255), colExt->R, colExt->G, colExt->B);
                         if( col!=0 )
-                            Gr->DrawRect(m_PosX+m_VarX1, yh+1+ydecal, m_PosX+m_VarX2, yh+ydecal+m_Font->m_CharHeight-1, col);
-                        /*
-                        Gr->DrawLine(m_PosX+m_VarX1-1, yh, m_PosX+m_VarX2+1, yh, 0xff000000);
-                        Gr->DrawLine(m_PosX+m_VarX1-1, yh+m_Font->m_CharHeight, m_PosX+m_VarX2+1, yh+m_Font->m_CharHeight, 0xff000000);
-                        Gr->DrawLine(m_PosX+m_VarX1-1, yh, m_PosX+m_VarX1-1, yh+m_Font->m_CharHeight, 0xff000000);
-                        Gr->DrawLine(m_PosX+m_VarX2, yh, m_PosX+m_VarX2, yh+m_Font->m_CharHeight, 0xff000000);
-                        */
+                            Gr->DrawRect(m_PosX+m_VarX1, yh+ydecal, m_PosX+m_VarX2, yh+ydecal+m_Font->m_CharHeight, col);
+
+                        // draw borders
+                        Gr->DrawFrame(m_PosX+m_VarX1, yh+ydecal, m_PosX+m_VarX2, yh+ydecal+m_Font->m_CharHeight, 0x40000000);
                     }
                     else if( Grp->m_SummaryCallback==CustomTypeSummaryCB && Grp->m_StructValuePtr!=NULL )
                     {
