@@ -6318,4 +6318,14 @@ bool CRect::Subtract(const vector<CRect>& _Rects, vector<CRect>& _OutRects) cons
 
 //  ---------------------------------------------------------------------------
 
+
+void CustomTypeSummaryCB(char *summaryString, size_t summaryMaxLength, const void *value, void *clientData)
+{
+  summaryString[0] = ' '; // Required to force background
+  summaryString[1] = 0;
+  (void)summaryMaxLength;
+  (void)value;
+  (void)clientData;
+}
+
 }

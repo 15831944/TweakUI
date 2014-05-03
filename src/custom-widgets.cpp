@@ -10,6 +10,8 @@ namespace TweakUI {
 
     void CCubicCurveExt::CreateTypes()
     {
+      const bool USE_CURVE_PREVIEW = true;
+
       s_CustomType = (TwType)(TW_TYPE_CUSTOM_BASE + (int)g_TwMgr->m_Customs.size());
       g_TwMgr->m_Customs.push_back(NULL); // increment custom type number
 
@@ -18,15 +20,7 @@ namespace TweakUI {
                                                 { "1", s_CustomType, 0, ""},
                                                 { "2", s_CustomType, 0, ""},
                                                 { "3", s_CustomType, 0, ""},
-                                                { "NumPoints", TW_TYPE_INT32, offsetof(CCubicCurveExt, NumPoints), "min=2 max=4" },
-                                                { "Point0.x", TW_TYPE_FLOAT, offsetof(CCubicCurveExt, curve.point0.x), "min=0 max=1 step=0.01" },
-                                                { "Point0.y", TW_TYPE_FLOAT, offsetof(CCubicCurveExt, curve.point0.y), "min=0 max=1 step=0.01" },
-                                                { "Point1.x", TW_TYPE_FLOAT, offsetof(CCubicCurveExt, curve.point1.x), "min=0 max=1 step=0.01" },
-                                                { "Point1.y", TW_TYPE_FLOAT, offsetof(CCubicCurveExt, curve.point1.y), "min=0 max=1 step=0.01" },
-                                                { "Tangent0.x", TW_TYPE_FLOAT, offsetof(CCubicCurveExt, curve.tangent0.x), "min=0 max=1 step=0.01" },
-                                                { "Tangent0.y", TW_TYPE_FLOAT, offsetof(CCubicCurveExt, curve.tangent0.y), "min=0 max=1 step=0.01" },
-                                                { "Tangent1.x", TW_TYPE_FLOAT, offsetof(CCubicCurveExt, curve.tangent1.x), "min=0 max=1 step=0.01" },
-                                                { "Tangent1.y", TW_TYPE_FLOAT, offsetof(CCubicCurveExt, curve.tangent1.y), "min=0 max=1 step=0.01" } };
+                                                { "NumPoints", TW_TYPE_INT32, offsetof(CCubicCurveExt, NumPoints), "min=2 max=4" } };
 
       TW_TYPE_CUBICCURVE = TwDefineStructExt("CUBICCURVE",
                                              CubicCurveExtMembers,
@@ -36,9 +30,14 @@ namespace TweakUI {
                                              &CCubicCurveExt::InitCubicCurve,
                                              &CCubicCurveExt::CopyVarFromExtCB,
                                              &CCubicCurveExt::CopyVarToExtCB,
-                                             &CCubicCurveExt::SummaryCB,
+                                             USE_CURVE_PREVIEW ? CustomTypeSummaryCB :  &CCubicCurveExt::SummaryCB,
                                              CTwMgr::CStruct::s_PassProxyAsClientData,
                                              "A 4-float-encoded cubic bezier-curve");
+
+      if(USE_CURVE_PREVIEW)
+      {
+        g_TwMgr->m_groupPreviewDrawCB[TW_TYPE_CUBICCURVE] = &CCubicCurveExt::PreviewCB;
+      }
     }
 
     void ANT_CALL CCubicCurveExt::InitCubicCurve(void *_ExtValue, void *_ClientData)
@@ -101,7 +100,7 @@ namespace TweakUI {
 
       (void)mProxy;
 
-      _snprintf(_SummaryString, _SummaryMaxLength, "NumPoints=%1", ext->NumPoints);
+      _snprintf(_SummaryString, _SummaryMaxLength, "NumPoints=%i", ext->NumPoints);
     }
 
 
@@ -140,6 +139,13 @@ namespace TweakUI {
 
     void ANT_CALL CCubicCurveExt::MouseLeaveCB(void *_StructExtValue, void *_ClientData, TwBar *_Bar)
     {
+    }
+
+
+    void ANT_CALL CCubicCurveExt::PreviewCB(int w, int h, void *_ExtValue, void *_ClientData)
+    {
+      g_TwMgr->m_Graph->DrawRect(0, 0, w, h, 0xffff8000);
+      g_TwMgr->m_Graph->DrawLine(w, 0, 0, h, 0xffffffff, true);
     }
 
 

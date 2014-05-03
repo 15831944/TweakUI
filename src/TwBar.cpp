@@ -5013,9 +5013,23 @@ void CTwBar::Draw(int _DrawPart)
                         Gr->DrawLine(m_PosX+m_VarX2, yh, m_PosX+m_VarX2, yh+m_Font->m_CharHeight, 0xff000000);
                         */
                     }
-                    //else if( Grp->m_SummaryCallback==CustomTypeSummaryCB && Grp->m_StructValuePtr!=NULL )
-                    //{
-                    //}
+                    else if( Grp->m_SummaryCallback==CustomTypeSummaryCB && Grp->m_StructValuePtr!=NULL )
+                    {
+                      std::map<TwType, GroupPreviewCallback>::const_iterator i=g_TwMgr->m_groupPreviewDrawCB.find(Grp->m_StructType);
+                      if(i!=g_TwMgr->m_groupPreviewDrawCB.end())
+                      {
+                        int x, y, w, h;
+
+                        x = m_PosX+m_VarX1;
+                        y = yh+1;
+                        w = m_VarX2-m_VarX1;
+                        h = m_Font->m_CharHeight-2;
+
+                        Gr->ChangeViewport(x, y, w, h, 0, 0);
+                        i->second(w, h, Grp->m_StructValuePtr, Grp->m_SummaryClientData);
+                        Gr->RestoreViewport();
+                      }
+                    }
                 }
                 else if( static_cast<CTwVarAtom *>(m_HierTags[h].m_Var)->m_Type==TW_TYPE_BUTTON && !m_IsPopupList )
                 {

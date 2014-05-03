@@ -29,6 +29,8 @@ namespace TweakUI {
       static bool ANT_CALL MouseMotionCB(int _MouseX, int _MouseY, int _W, int _H, void *_StructExtValue, void *_ClientData, TwBar *_Bar, CTwVarGroup *varGrp);
       static bool ANT_CALL MouseButtonCB(TwMouseButtonID _Button, bool _Pressed, int _MouseX, int _MouseY, int _W, int _H, void *_StructExtValue, void *_ClientData, TwBar *_Bar, CTwVarGroup *varGrp);
       static void ANT_CALL MouseLeaveCB(void *_StructExtValue, void *_ClientData, TwBar *_Bar);
+
+      static void ANT_CALL PreviewCB(int w, int h, void *_ExtValue, void *_ClientData);
     };
 
 

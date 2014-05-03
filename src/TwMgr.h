@@ -72,6 +72,7 @@ typedef void (ANT_CALL *TwCustomDrawCallback)(int w, int h, void *structExtValue
 typedef bool (ANT_CALL *TwCustomMouseMotionCallback)(int mouseX, int mouseY, int w, int h, void *structExtValue, void *clientData, TwBar *bar, CTwVarGroup *varGrp);
 typedef bool (ANT_CALL *TwCustomMouseButtonCallback)(TwMouseButtonID button, bool pressed, int mouseX, int mouseY, int w, int h, void *structExtValue, void *clientData, TwBar *bar, CTwVarGroup *varGrp);
 typedef void (ANT_CALL *TwCustomMouseLeaveCallback)(void *structExtValue, void *clientData, TwBar *bar);
+typedef void (ANT_CALL *GroupPreviewCallback)(int w, int h, void *_ExtValue, void *_ClientData);
 
 TwType ANT_CALL TwDefineStructExt(const char *_StructName, const TwStructMember *_StructExtMembers, unsigned int _NbExtMembers, size_t _StructSize, size_t _StructExtSize, TwStructExtInitCallback _StructExtInitCallback, TwCopyVarFromExtCallback _CopyVarFromExtCallback, TwCopyVarToExtCallback _CopyVarToExtCallback, TwSummaryCallback _SummaryCallback, void *_ClientData, const char *_Help);
 
@@ -149,6 +150,7 @@ struct CTwMgr
     const char *        CheckLastError() const;                         // returns the LastError, but does not set it to NULL
     void                SetCurrentDbgParams(const char *file, int line);
     TwBar *             m_PopupBar;
+    std::map<TwType, GroupPreviewCallback> m_groupPreviewDrawCB;
     //bool              IsProcessing() const            { return m_Processing);
     //void              SetProcessing(bool processing)  { m_Processing = processing; }
 
@@ -490,6 +492,9 @@ private:
 };
 
 //  ---------------------------------------------------------------------------
+
+void CustomTypeSummaryCB(char *summaryString, size_t summaryMaxLength, const void *value, void *clientData);
+
 
 }
 
