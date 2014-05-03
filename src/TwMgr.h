@@ -73,6 +73,8 @@ typedef bool (ANT_CALL *TwCustomMouseMotionCallback)(int mouseX, int mouseY, int
 typedef bool (ANT_CALL *TwCustomMouseButtonCallback)(TwMouseButtonID button, bool pressed, int mouseX, int mouseY, int w, int h, void *structExtValue, void *clientData, TwBar *bar, CTwVarGroup *varGrp);
 typedef void (ANT_CALL *TwCustomMouseLeaveCallback)(void *structExtValue, void *clientData, TwBar *bar);
 
+TwType ANT_CALL TwDefineStructExt(const char *_StructName, const TwStructMember *_StructExtMembers, unsigned int _NbExtMembers, size_t _StructSize, size_t _StructExtSize, TwStructExtInitCallback _StructExtInitCallback, TwCopyVarFromExtCallback _CopyVarFromExtCallback, TwCopyVarToExtCallback _CopyVarToExtCallback, TwSummaryCallback _SummaryCallback, void *_ClientData, const char *_Help);
+
 enum ERetType 
 {
     RET_ERROR = 0,
@@ -490,5 +492,10 @@ private:
 //  ---------------------------------------------------------------------------
 
 }
+
+
+#if !defined(ANT_WINDOWS)
+#   define _snprintf snprintf
+#endif  // defined(ANT_WINDOWS)
 
 #endif // !defined ANT_TW_MGR_INCLUDED

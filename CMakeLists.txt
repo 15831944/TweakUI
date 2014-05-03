@@ -44,7 +44,10 @@ add_library(TweakUI STATIC
   ./src/TwBar.h
   ./src/TwPrecomp.cpp
   ./src/AntPerfTimer.h
+  ./src/custom-widgets.h
+  ./src/custom-widgets.cpp
   ./include/TweakUI.h
+  ./include/TweakUI/Curve.h
 )
 
 set(TWEAKUI_LIBRARIES

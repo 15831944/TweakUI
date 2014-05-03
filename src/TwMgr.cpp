@@ -8,15 +8,13 @@
 //  ---------------------------------------------------------------------------
 
 
+#include "custom-widgets.h"
+
 #include "TwPrecomp.h"
 #include <TweakUI.h>
 #include "TwMgr.h"
 #include "TwBar.h"
 #include "TwFonts.h"
-
-#if !defined(ANT_WINDOWS)
-#   define _snprintf snprintf
-#endif  // defined(ANT_WINDOWS)
 
 
 using namespace std;
@@ -1828,6 +1826,8 @@ static int TwInitMgr()
 
     CColorExt::CreateTypes();
     CQuaternionExt::CreateTypes();
+
+    CustomWidgets::createTypes();
 
     return 1;
 }

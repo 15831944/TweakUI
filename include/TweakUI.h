@@ -20,12 +20,13 @@
 #if !defined TW_INCLUDED
 #define TW_INCLUDED
 
+#include <TweakUI/Curve.h>
+
 #include <stddef.h>
 
 #define TW_VERSION  116 // Version Mmm : M=Major mm=minor (e.g., 102 is version 1.02)
 
 
-#ifdef  __cplusplus
 #   if defined(_MSC_VER)
 #       pragma warning(push)
 #       pragma warning(disable: 4995 4530)
@@ -34,8 +35,6 @@
 #   else
 #       include <string>
 #   endif
-    extern "C" {
-#endif  // __cplusplus
 
 
 // ----------------------------------------------------------------------------
@@ -402,9 +401,8 @@ TW_COMPILE_TIME_ASSERT(TW_DOUBLE,  sizeof(double)  == 8);
       static ClipboardHandler *handler;
     };
 
-#ifdef  __cplusplus
-    }   // extern "C"
-#endif  // __cplusplus
+
+    extern ETwType TW_TYPE_CUBICCURVE;
 
 }
 
