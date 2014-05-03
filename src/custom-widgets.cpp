@@ -121,7 +121,6 @@ namespace TweakUI {
 
       // draw borders
       g_TwMgr->m_Graph->DrawFrame(0, 0, w, h, 0x40000000);
-      g_TwMgr->m_Graph->DrawFrame(8, 8, 16, 16, 0x80ffffff);
     }
 
 

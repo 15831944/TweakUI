@@ -5021,9 +5021,9 @@ void CTwBar::Draw(int _DrawPart)
                         int x, y, w, h;
 
                         x = m_PosX+m_VarX1;
-                        y = yh+1;
+                        y = yh;
                         w = m_VarX2-m_VarX1;
-                        h = m_Font->m_CharHeight-2;
+                        h = m_Font->m_CharHeight;
 
                         Gr->ChangeViewport(x, y, w, h, 0, 0);
                         i->second(w, h, Grp->m_StructValuePtr, Grp->m_SummaryClientData);
