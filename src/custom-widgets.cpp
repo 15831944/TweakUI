@@ -144,7 +144,6 @@ namespace TweakUI {
 
     void ANT_CALL CCubicCurveExt::PreviewCB(int w, int h, void *_ExtValue, void *_ClientData)
     {
-      g_TwMgr->m_Graph->DrawRect(0, 0, w, h, 0xffff8000);
       g_TwMgr->m_Graph->DrawLine(w, 0, 0, h, 0xffffffff, true);
     }
 
