@@ -20,6 +20,9 @@ namespace TweakUI {
                                                 { "1", s_CustomType, 0, ""},
                                                 { "2", s_CustomType, 0, ""},
                                                 { "3", s_CustomType, 0, ""},
+                                                { "4", s_CustomType, 0, ""},
+                                                { "5", s_CustomType, 0, ""},
+                                                { "6", s_CustomType, 0, ""},
                                                 { "NumPoints", TW_TYPE_INT32, offsetof(CCubicCurveExt, NumPoints), "min=2 max=4" } };
 
       TW_TYPE_CUBICCURVE = TwDefineStructExt("CUBICCURVE",
