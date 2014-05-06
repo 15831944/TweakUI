@@ -4,6 +4,11 @@ namespace TweakUI {
 
   ETwType TW_TYPE_CUBICCURVE;
   ETwType TW_TYPE_VECTOR2;
+  ETwType TW_TYPE_VECTOR3;
+  ETwType TW_TYPE_VECTOR4;
+  ETwType TW_TYPE_INT_VECTOR2;
+  ETwType TW_TYPE_INT_VECTOR3;
+  ETwType TW_TYPE_INT_VECTOR4;
 
   namespace CustomWidgets
   {
@@ -151,10 +156,41 @@ namespace TweakUI {
 
     void createVectorTypes()
     {
-      TwStructMember vec2Members[] = { { "x", TW_TYPE_FLOAT, offsetof(vec2, x), "min=0" },
-                                       { "y", TW_TYPE_FLOAT, offsetof(vec2, y) }};
+      TwStructMember vec2Members[] = { { "x", TW_TYPE_FLOAT, offsetof(vec2, x), "step=0.001" },
+                                       { "y", TW_TYPE_FLOAT, offsetof(vec2, y), "step=0.001"  }};
 
       TW_TYPE_VECTOR2 = TwDefineStruct("vec2", vec2Members, sizeof(vec2Members)/sizeof(vec2Members[0]), sizeof(vec2), nullptr, nullptr);
+
+      TwStructMember vec3Members[] = { { "x", TW_TYPE_FLOAT, offsetof(vec3, x), "step=0.001"  },
+                                       { "y", TW_TYPE_FLOAT, offsetof(vec3, y), "step=0.001"  },
+                                       { "z", TW_TYPE_FLOAT, offsetof(vec3, z), "step=0.001"  }};
+
+      TW_TYPE_VECTOR3 = TwDefineStruct("vec3", vec3Members, sizeof(vec3Members)/sizeof(vec3Members[0]), sizeof(vec3), nullptr, nullptr);
+
+      TwStructMember vec4Members[] = { { "x", TW_TYPE_FLOAT, offsetof(vec4, x), "step=0.001"  },
+                                       { "y", TW_TYPE_FLOAT, offsetof(vec4, y), "step=0.001"  },
+                                       { "z", TW_TYPE_FLOAT, offsetof(vec4, z), "step=0.001"  },
+                                       { "w", TW_TYPE_FLOAT, offsetof(vec4, z), "step=0.001"  }};
+
+      TW_TYPE_VECTOR4 = TwDefineStruct("vec4", vec4Members, sizeof(vec4Members)/sizeof(vec4Members[0]), sizeof(vec4), nullptr, nullptr);
+
+      TwStructMember ivec2Members[] = { { "x", TW_TYPE_FLOAT, offsetof(ivec2, x) },
+                                       { "y", TW_TYPE_FLOAT, offsetof(ivec2, y) }};
+
+      TW_TYPE_INT_VECTOR2 = TwDefineStruct("ivec2", ivec2Members, sizeof(ivec2Members)/sizeof(ivec2Members[0]), sizeof(ivec2), nullptr, nullptr);
+
+      TwStructMember ivec3Members[] = { { "x", TW_TYPE_FLOAT, offsetof(ivec3, x)  },
+                                       { "y", TW_TYPE_FLOAT, offsetof(ivec3, y)  },
+                                       { "z", TW_TYPE_FLOAT, offsetof(ivec3, z)  }};
+
+      TW_TYPE_INT_VECTOR3 = TwDefineStruct("ivec3", ivec3Members, sizeof(ivec3Members)/sizeof(ivec3Members[0]), sizeof(ivec3), nullptr, nullptr);
+
+      TwStructMember ivec4Members[] = { { "x", TW_TYPE_FLOAT, offsetof(ivec4, x)  },
+                                       { "y", TW_TYPE_FLOAT, offsetof(ivec4, y)  },
+                                       { "z", TW_TYPE_FLOAT, offsetof(ivec4, z)  },
+                                       { "w", TW_TYPE_FLOAT, offsetof(ivec4, z)  }};
+
+      TW_TYPE_INT_VECTOR4 = TwDefineStruct("ivec4", ivec4Members, sizeof(ivec4Members)/sizeof(ivec4Members[0]), sizeof(ivec4), nullptr, nullptr);
     }
 
 
