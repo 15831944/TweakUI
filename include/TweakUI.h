@@ -403,6 +403,12 @@ TW_COMPILE_TIME_ASSERT(TW_DOUBLE,  sizeof(double)  == 8);
 
 
     extern ETwType TW_TYPE_CUBICCURVE;
+    extern ETwType TW_TYPE_VECTOR2;
+    extern ETwType TW_TYPE_VECTOR3;
+    extern ETwType TW_TYPE_VECTOR4;
+    extern ETwType TW_TYPE_INT_VECTOR2;
+    extern ETwType TW_TYPE_INT_VECTOR3;
+    extern ETwType TW_TYPE_INT_VECTOR4;
 
 }
 

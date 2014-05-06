@@ -3,6 +3,7 @@
 namespace TweakUI {
 
   ETwType TW_TYPE_CUBICCURVE;
+  ETwType TW_TYPE_VECTOR2;
 
   namespace CustomWidgets
   {
@@ -148,8 +149,18 @@ namespace TweakUI {
     }
 
 
+    void createVectorTypes()
+    {
+      TwStructMember vec2Members[] = { { "x", TW_TYPE_INT32, offsetof(vec2, x) },
+                                       { "y", TW_TYPE_INT32, offsetof(vec2, y) }};
+
+      TW_TYPE_VECTOR2 = TwDefineStruct("vec2", vec2Members, sizeof(vec2Members)/sizeof(vec2Members[0]), sizeof(vec2), nullptr, nullptr);
+    }
+
+
     void createTypes()
     {
+      createVectorTypes();
       CCubicCurveExt::CreateTypes();
     }
 
