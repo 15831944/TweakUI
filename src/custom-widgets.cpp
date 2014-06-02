@@ -174,21 +174,21 @@ namespace TweakUI {
 
       TW_TYPE_VECTOR4 = TwDefineStruct("vec4", vec4Members, sizeof(vec4Members)/sizeof(vec4Members[0]), sizeof(vec4), nullptr, nullptr);
 
-      TwStructMember ivec2Members[] = { { "x", TW_TYPE_FLOAT, offsetof(ivec2, x) },
-                                       { "y", TW_TYPE_FLOAT, offsetof(ivec2, y) }};
+      TwStructMember ivec2Members[] = { { "x", TW_TYPE_INT32, offsetof(ivec2, x) },
+                                       { "y", TW_TYPE_INT32, offsetof(ivec2, y) }};
 
       TW_TYPE_INT_VECTOR2 = TwDefineStruct("ivec2", ivec2Members, sizeof(ivec2Members)/sizeof(ivec2Members[0]), sizeof(ivec2), nullptr, nullptr);
 
-      TwStructMember ivec3Members[] = { { "x", TW_TYPE_FLOAT, offsetof(ivec3, x)  },
-                                       { "y", TW_TYPE_FLOAT, offsetof(ivec3, y)  },
-                                       { "z", TW_TYPE_FLOAT, offsetof(ivec3, z)  }};
+      TwStructMember ivec3Members[] = { { "x", TW_TYPE_INT32, offsetof(ivec3, x)  },
+                                       { "y", TW_TYPE_INT32, offsetof(ivec3, y)  },
+                                       { "z", TW_TYPE_INT32, offsetof(ivec3, z)  }};
 
       TW_TYPE_INT_VECTOR3 = TwDefineStruct("ivec3", ivec3Members, sizeof(ivec3Members)/sizeof(ivec3Members[0]), sizeof(ivec3), nullptr, nullptr);
 
-      TwStructMember ivec4Members[] = { { "x", TW_TYPE_FLOAT, offsetof(ivec4, x)  },
-                                       { "y", TW_TYPE_FLOAT, offsetof(ivec4, y)  },
-                                       { "z", TW_TYPE_FLOAT, offsetof(ivec4, z)  },
-                                       { "w", TW_TYPE_FLOAT, offsetof(ivec4, z)  }};
+      TwStructMember ivec4Members[] = { { "x", TW_TYPE_INT32, offsetof(ivec4, x)  },
+                                       { "y", TW_TYPE_INT32, offsetof(ivec4, y)  },
+                                       { "z", TW_TYPE_INT32, offsetof(ivec4, z)  },
+                                       { "w", TW_TYPE_INT32, offsetof(ivec4, z)  }};
 
       TW_TYPE_INT_VECTOR4 = TwDefineStruct("ivec4", ivec4Members, sizeof(ivec4Members)/sizeof(ivec4Members[0]), sizeof(ivec4), nullptr, nullptr);
     }
